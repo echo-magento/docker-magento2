@@ -1,0 +1,4 @@
+/src2/*
+.DS_Store
+/.idea
+/elasticsearchdata/*

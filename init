@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+if [ "$2" == "clone" ]; then
+  git clone https://github.com/echo-magento/docker-magento2.git $1 && cd $1;
+fi
+
+git config --global core.autocrlf false
+git config --global core.eol LF
+git config --global core.fileMode false
+git config --global diff.renamelimit 5000
+
+sudo chmod -R u+x ./*
+
+docker image pull rafaelcgstz/magento2
+
+if [ "$(uname)" == "Darwin" ]; then
+    git checkout -f mac;
+    sed -i '' -e "s/<project_name>/$1/g" docker-compose.yml \
+    && sed -i '' -e "s/<project_name>/$1/g" docker-compose-dev.yml \
+    && sed -i '' -e "s/<project_name>/$1/g" docker-sync.yml;
+elif [ "$(uname)" == "cygwin" ] || [ "$(uname)" == "msys" ] || [ "$(uname)" == "win32" ]; then
+    git checkout -f windows;
+    sed -i '' -e "s/<project_name>/$1/g" docker-compose.yml \
+    && sed -i '' -e "s/<project_name>/$1/g" docker-compose-dev.yml \
+    && sed -i '' -e "s/<project_name>/$1/g" docker-sync.yml;
+else
+    git checkout -f master;
+    sed -i '' -e "s/<project_name>/$1/g" docker-compose.yml;
+fi
+
+if [ ! -e src/index.php ]; then
+  echo "<?php phpinfo();" > src/index.php;
+fi
+
+if [ -d src/app/etc ]; then  
+  if [ ! -e src/app/etc/env.php ]; then
+    cp .docker/users/env.sample.php src/app/etc/env.php;
+  fi
+fi
+
+chmod -R 777 src
+
+bash start
