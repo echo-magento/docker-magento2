@@ -12,14 +12,14 @@ Install [Docker](https://docs.docker.com/engine/installation/linux/docker-ce/ubu
 
 
 ### Before start
-Note that for elastic search you need at least 262144 memory. 
+Note that for Elasticsearch you need at least 262144 memory. 
 
-To check
+To check:
 ```
 more /proc/sys/vm/max_map_count
 ```
 
-To increase
+To increase:
 ```
 sudo sysctl -w vm.max_map_count=262144
 ```
