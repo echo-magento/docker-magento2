@@ -28,7 +28,7 @@ sudo sysctl -w vm.max_map_count=262144
 Change the _MAGENTO2_ to your project's name and run:
 
 ```
-curl -s https://raw.githubusercontent.com/echo-magento/docker-m2/master/init | bash -s MAGENTO2  clone
+curl -s https://raw.githubusercontent.com/echo-magento/docker-magento2/master/init | bash -s MAGENTO2  clone
 ```
 
 To install the latest version of Magento 2:
