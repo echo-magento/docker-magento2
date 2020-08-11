@@ -30,7 +30,7 @@ Execute in your terminal, change the _MYMAGENTO2_ to use the name of your projec
 curl -s https://raw.githubusercontent.com/echo-magento/docker-m2/master/init | bash -s MYMAGENTO2  clone
 ```
 
-If you want to install the Magento 2, use like that:
+To install the latest version of Magento 2:
 
 ```
 cd MYMAGENTO2
@@ -40,8 +40,6 @@ install-magento2
 ```
 
 ### Panels
-
-Enjoy your new panels!
 
 **Web server:** http://localhost/
 
