@@ -25,15 +25,15 @@ sudo sysctl -w vm.max_map_count=262144
 ```
 
 ### How to use
-Execute in your terminal, change the _MYMAGENTO2_ to use the name of your project:
+Execute in your terminal, change the _MAGENTO2_ to use the name of your project:
 ```
-curl -s https://raw.githubusercontent.com/echo-magento/docker-m2/master/init | bash -s MYMAGENTO2  clone
+curl -s https://raw.githubusercontent.com/echo-magento/docker-m2/master/init | bash -s MAGENTO2  clone
 ```
 
 To install the latest version of Magento 2:
 
 ```
-cd MYMAGENTO2
+cd MAGENTO2
 ./shell
 rm index.php
 install-magento2
