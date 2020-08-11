@@ -26,6 +26,7 @@ sudo sysctl -w vm.max_map_count=262144
 
 ### How to use
 Change the _MAGENTO2_ to your project's name and run:
+
 ```
 curl -s https://raw.githubusercontent.com/echo-magento/docker-m2/master/init | bash -s MAGENTO2  clone
 ```
