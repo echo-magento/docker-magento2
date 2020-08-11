@@ -25,7 +25,7 @@ sudo sysctl -w vm.max_map_count=262144
 ```
 
 ### How to use
-Execute in your terminal, change the _MAGENTO2_ to use the name of your project:
+Change the _MAGENTO2_ to your project's name and run:
 ```
 curl -s https://raw.githubusercontent.com/echo-magento/docker-m2/master/init | bash -s MAGENTO2  clone
 ```
