@@ -44,8 +44,6 @@ install-magento2
 
 **Web server:** http://localhost/
 
-**PHPMyAdmin:** http://localhost:8080
-
 **Local emails:** http://localhost:8025
 
 ### Features commands
