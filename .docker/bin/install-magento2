@@ -10,8 +10,8 @@ chmod u+w -R ./var ./vendor ./pub/static ./pub/media ./app/etc \
 && php -f ./bin/magento setup:install --base-url=http://localhost/ \
     --db-host=db \
     --db-name=magento \
-    --db-user=admin \
-    --db-password=admin123 \
+    --db-user=root \
+    --db-password=root \
     --admin-firstname=Magento \
     --admin-lastname=Commerce \
     --admin-email=user@example.com \
@@ -22,18 +22,19 @@ chmod u+w -R ./var ./vendor ./pub/static ./pub/media ./app/etc \
     --timezone=America/Chicago \
     --use-rewrites=1 \
     --backend-frontname=admin \
-    --use-sample-data \
     --elasticsearch-host=elasticsearch;
 
 cp ~/.composer/auth.json var/composer_home/auth.json \
-&& php -f ./bin/magento sampledata:deploy \
 && php -f ./bin/magento setup:upgrade \
+&& php -f ./bin/magento setup:di:compile \
+&& php -f ./bin/magento deploy:mode:set developer \
+&& php -f ./bin/magento setup:static-content:deploy -f\
 && php -f ./bin/magento indexer:reindex \
+&& php -f ./bin/magento cache:clean \
 && php -f ./bin/magento cache:flush;
 mv package.json.sample package.json ; mv Gruntfile.js.sample Gruntfile.js;
 npm i;
-php -f ./bin/magento deploy:mode:set production \
-&& composer dump-autoload -o \
+php composer dump-autoload -o \
 && clear && echo "
 ===================== 🚀 Done 🚀 ===================
 
