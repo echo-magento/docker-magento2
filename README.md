@@ -40,6 +40,8 @@ rm index.php
 install-magento2
 ```
 
+> If you don't want to use Varnish and Elasticsearch use `docker-compose.light.yml`
+
 ### Panels
 
 **Web server:** http://localhost/
