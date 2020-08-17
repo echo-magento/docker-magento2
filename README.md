@@ -2,7 +2,7 @@
 
 #  Magento 2 Docker to Development
 
-### Magento 2.4.0 + Apache 2.4 + PHP 7.3 + OPCache + MariaDB 10.4.13 + N98 Magerun 2 + XDebug + Redis + Elasticsearch 7.6.0 + Varnish 6.4.0
+### Magento 2.4.0 + Apache 2.4 + PHP 7.3 + MariaDB 10.4.13 + Elasticsearch 7.6.0 + Varnish 6.4.0 + Redis + OPCache + N98 Magerun 2 + XDebug
 
 ### Requirements
 
