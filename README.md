@@ -1,4 +1,6 @@
-![Magento 2](https://cdn.rawgit.com/rafaelstz/magento2-snippets-visualstudio/master/images/icon.png)
+<p align="center">
+    <img src="https://static.magento.com/sites/all/themes/magento/logo.svg" width="300px" alt="Magento Commerce" />
+</p>
 
 #  Magento 2 Docker to Development
 
