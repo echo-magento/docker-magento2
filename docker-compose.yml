@@ -28,8 +28,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=magento
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=admin123
+      - MYSQL_USER=magento
+      - MYSQL_PASSWORD=magento
     volumes:
       - dbdata:/var/lib/mysql
     networks:

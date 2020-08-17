@@ -16,7 +16,7 @@ chmod u+w -R ./var ./vendor ./pub/static ./pub/media ./app/etc \
     --admin-lastname=Commerce \
     --admin-email=user@example.com \
     --admin-user=admin \
-    --admin-password=admin123 \
+    --admin-password=Admin123 \
     --language=en_US \
     --currency=USD \
     --timezone=America/Chicago \
@@ -34,14 +34,5 @@ cp ~/.composer/auth.json var/composer_home/auth.json \
 && php -f ./bin/magento cache:flush;
 mv package.json.sample package.json ; mv Gruntfile.js.sample Gruntfile.js;
 npm i;
-php composer dump-autoload -o \
-&& clear && echo "
-===================== 🚀 Done 🚀 ===================
-
-      Magento 2 Installed successfully!
-
-      🌎 Admin: http://localhost/admin
-      👤 User: admin
-      🔑 Password: admin123
-
-===================== 🚀 Done 🚀 ==================="
+composer dump-autoload -o \
+&& clear && echo "Magento was installed: Yes."

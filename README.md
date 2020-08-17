@@ -19,9 +19,9 @@ To check:
 more /proc/sys/vm/max_map_count
 ```
 
-To increase:
+The vm.max_map_count setting should be set permanently in `/etc/sysctl.conf`:
 ```
-sudo sysctl -w vm.max_map_count=262144
+vm.max_map_count=262144
 ```
 
 ### How to use
