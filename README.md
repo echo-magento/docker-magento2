@@ -25,6 +25,11 @@ The vm.max_map_count setting should be set permanently in `/etc/sysctl.conf`:
 ```
 vm.max_map_count=262144
 ```
+After set run:
+```
+sudo sysctl -p
+```
+
 
 ### How to use
 Change the _MAGENTO2_ to your project's name and run:
