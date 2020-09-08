@@ -72,7 +72,6 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
 # Install Composer
 
 RUN	curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
-RUN composer global require hirak/prestissimo
 
 # Install Code Sniffer
 
@@ -121,6 +120,8 @@ RUN chmod 777 -Rf /var/www /var/www/.* \
 	&& chsh -s /bin/bash www-data\
 	&& a2enmod rewrite \
 	&& a2enmod headers
+
+RUN su -c "composer global require hirak/prestissimo" -s /bin/sh www-data
 
 VOLUME /var/www/html
 WORKDIR /var/www/html
