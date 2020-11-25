@@ -10,6 +10,7 @@
 - Apache
 - PHP 7.1, PHP 7.2, PHP 7.3
 - Xdebug
+- Composer 1.10.17
 - MariaDB 10.4.13
 - Elasticsearch 7.6
 - Varnish 6.4
