@@ -33,6 +33,7 @@ services:
       - MYSQL_PASSWORD=admin123
     volumes:
       - dbdata:/var/lib/mysql
+      - ./backups:/var/tmp/backups
     networks:
       - <project_name>-network
 
