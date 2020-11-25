@@ -3,13 +3,13 @@ services:
   apache:
     build:
       context: .
-      dockerfile: build/apache/Dockerfile
+      dockerfile: build/apache/php-7.3/Dockerfile
     ports:
       - "80:80"
       - "9001:9000" # xdebug
     volumes:
       - ./src:/var/www/html
-      - ~/.composer:/var/www/.composer
+      - ~/.composer/cache:/var/www/.composer/cache
       - ~/.npm:/var/www/.npm
     environment:
       XDEBUG_CONFIG: "remote_host=localhost"
