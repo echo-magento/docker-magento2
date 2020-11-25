@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: build/apache/php-7.3/Dockerfile
     ports:
-      - "80:80"
+      - "8080:80"
       - "9001:9000" # xdebug
     volumes:
       - ./src:/var/www/html
@@ -29,8 +29,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=magento
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=admin123
+      - MYSQL_USER=magento
+      - MYSQL_PASSWORD=magento
     volumes:
       - dbdata:/var/lib/mysql
       - ./backups:/var/tmp/backups
@@ -56,6 +56,44 @@ services:
     ports:
       - 1025:1025
       - 8025:8025
+    networks:
+      - <project_name>-network
+
+  varnish:
+    build:
+      context: .
+      dockerfile: build/varnish/Dockerfile
+    hostname: varnish
+    ports:
+      - "80:80"
+    networks:
+      - <project_name>-network
+    depends_on:
+      - apache
+    volumes:
+      - ./build/varnish/varnish6.vcl:/etc/varnish/default.vcl
+      - ./build/varnish/varnish.secret:/etc/varnish/secret
+    environment:
+      - CACHE_SIZE=64M
+
+  elasticsearch:
+    build:
+      context: .
+      dockerfile: build/elasticsearch/Dockerfile
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - node.name=node-1
+      - cluster.initial_master_nodes=node-1
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./elasticsearchdata:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
     networks:
       - <project_name>-network
 

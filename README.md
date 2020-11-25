@@ -4,7 +4,19 @@
 
 #  Magento 2 Docker to Development
 
-### Magento 2.4.0 + Apache 2.4 + PHP 7.3 + MariaDB 10.4.13 + Elasticsearch 7.6.0 + Varnish 6.4.0 + Redis + OPCache + N98 Magerun 2 + XDebug
+### Features
+
+- Magento 2.4
+- Apache
+- PHP 7.1, PHP 7.2, PHP 7.3
+- Xdebug
+- Composer 1.10.17
+- MariaDB 10.4.13
+- Elasticsearch 7.6
+- Varnish 6.4
+- Redis
+- MailHog
+- n98-magerun
 
 ### Requirements
 
@@ -47,6 +59,8 @@ rm index.php
 install-magento2
 ```
 
+> If you want to use Varnish use `docker-compose.varnish.yml`
+>
 > If you don't want to use Varnish and Elasticsearch use `docker-compose.light.yml`
 
 ### Panels
@@ -59,14 +73,15 @@ install-magento2
 
 | Commands  | Description  | Options & Examples |
 |---|---|---|
-| `./init`  | If you didn't use the CURL setup command above, please use this command changing the name of the project.  | `./init MYMAGENTO2` |
-| `./start`  | If you continuing not using the CURL you can start your container manually  | |
-| `./stop`  | Stop your project containers  | |
-| `./kill`  | Stops containers and removes containers, networks, volumes, and images created to the specific project  | |
-| `./shell`  | Access your container  | `./shell root` | |
-| `./magento`  | Use the power of the Magento CLI  | |
-| `./n98`  | Use the Magerun commands as you want | |
-| `./grunt-init`  | Prepare to use Grunt  | |
-| `./grunt`  | Use Grunt specifically in your theme or completely, it'll do the deploy and the watcher.  | `./grunt luma` |
-| `./xdebug`  |  Enable / Disable the XDebug | |
-| `./composer`  |  Use Composer commands | `./composer update` |
+| `bin/init`  | If you didn't use the CURL setup command above, please use this command changing the name of the project.  | `./init MYMAGENTO2` |
+| `bin/start`  | If you continuing not using the CURL you can start your container manually  | |
+| `bin/stop`  | Stop your project containers  | |
+| `bin/kill`  | Stops containers and removes containers, networks, volumes, and images created to the specific project  | |
+| `bin/shell`  | Access your container  | `./shell root` | |
+| `bin/magento`  | Use the power of the Magento CLI  | |
+| `bin/magento-basic`  | All basic Magento CLI commands (setup:upgrade, setup:di:compile, setup:static-content:deploy -f, cache:clean, cache:flush)  | |
+| `bin/n98`  | Use the Magerun commands as you want | |
+| `bin/grunt-init`  | Prepare to use Grunt  | |
+| `bin/grunt`  | Use Grunt specifically in your theme or completely, it'll do the deploy and the watcher.  | `./grunt luma` |
+| `bin/xdebug`  |  Enable / Disable the XDebug | |
+| `bin/composer`  |  Use Composer commands | `./composer update` |
