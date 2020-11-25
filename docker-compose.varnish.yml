@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: build/apache/php-7.3/Dockerfile
     ports:
-      - "80:80"
+      - "8080:80"
       - "9001:9000" # xdebug
     volumes:
       - ./src:/var/www/html
@@ -57,6 +57,23 @@ services:
       - 8025:8025
     networks:
       - <project_name>-network
+
+  varnish:
+    build:
+      context: .
+      dockerfile: build/varnish/Dockerfile
+    hostname: varnish
+    ports:
+      - "80:80"
+    networks:
+      - <project_name>-network
+    depends_on:
+      - apache
+    volumes:
+      - ./build/varnish/varnish6.vcl:/etc/varnish/default.vcl
+      - ./build/varnish/varnish.secret:/etc/varnish/secret
+    environment:
+      - CACHE_SIZE=64M
 
   elasticsearch:
     build:
