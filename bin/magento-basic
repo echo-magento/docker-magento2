@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+docker-compose exec --user www-data apache /var/www/html/bin/magento setup:upgrade
+docker-compose exec --user www-data apache /var/www/html/bin/magento setup:di:compile
+docker-compose exec --user www-data apache /var/www/html/bin/magento setup:static-content:deploy -f
+docker-compose exec --user www-data apache /var/www/html/bin/magento cache:clean
+docker-compose exec --user www-data apache /var/www/html/bin/magento cache:flush
