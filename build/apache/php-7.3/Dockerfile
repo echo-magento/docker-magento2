@@ -48,7 +48,6 @@ RUN docker-php-ext-configure \
   	intl \
   	mbstring \
   	mysqli \
-  	mcrypt \
   	pdo_mysql \
   	soap \
   	xsl \
