@@ -8,15 +8,21 @@
 
 - Magento 2.4
 - Apache
-- PHP 7.1, PHP 7.2, PHP 7.3
-- Xdebug
-- Composer 1.10.17
+- PHP 7.1, PHP 7.2, PHP 7.3, PHP 7.4
+- Xdebug 2.9.8
 - MariaDB 10.4.13
 - Elasticsearch 7.6
 - Varnish 6.4
 - Redis
 - MailHog
 - n98-magerun
+
+| PHP Version  | Composer  | [hirak/prestissimo](https://github.com/hirak/prestissimo) |
+|---|---|---|
+|7.1|1.10.17|Yes|
+|7.2|1.10.17|Yes|
+|7.3|1.10.17|Yes|
+|7.4|2.*|No|
 
 ### Requirements
 
