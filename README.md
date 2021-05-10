@@ -60,7 +60,7 @@ To install the latest version of Magento 2:
 
 ```
 cd MAGENTO2
-./shell
+bin/shell
 rm index.php
 install-magento2
 ```
