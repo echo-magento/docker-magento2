@@ -50,16 +50,15 @@ sudo sysctl -p
 
 
 ### How to use
-Change the _MAGENTO2_ to your project's name and run:
+Run all containers with command
 
 ```
-curl -s https://raw.githubusercontent.com/echo-magento/docker-magento2/master/init | bash -s MAGENTO2  clone
+bin/start
 ```
 
 To install the latest version of Magento 2:
 
 ```
-cd MAGENTO2
 bin/shell
 rm index.php
 install-magento2
