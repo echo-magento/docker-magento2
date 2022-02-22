@@ -51,6 +51,11 @@ You can then exit the docker-host by typing
 exit
 ```
 
+For permissions: 
+```
+Acces docker apache terminal and aply chmod 777 -R html/
+```
+
 
 **Linux:**
 
