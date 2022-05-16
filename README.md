@@ -26,6 +26,37 @@
 
 ### Requirements
 
+**Windows:**
+
+Install [Docker](https://www.docker.com/products/docker-desktop) and [WSL Windows Ubuntu 20](https://www.microsoft.com/pt-br/p/ubuntu-2004/9n6svws3rx71?rtc=1&activetab=pivot:overviewtab)
+
+### Before start
+Note that for Elasticsearch you need at least 262144 memory. 
+
+To access:
+```
+wsl -d docker-desktop
+```
+
+Once in your docker-desktop, do the following:
+```
+echo "vm.max_map_count = 262144"> /etc/sysctl.d/999-docker-desktop-conf
+```
+Followed by:
+```
+sysctl -w vm.max_map_count=262144
+```
+You can then exit the docker-host by typing
+```
+exit
+```
+
+For permissions: 
+```
+Acces docker apache terminal and aply chmod 777 -R html/
+```
+
+
 **Linux:**
 
 Install [Docker](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/) and [Docker-compose](https://docs.docker.com/compose/install/#install-compose).
